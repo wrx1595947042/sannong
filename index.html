@@ -1,0 +1,480 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三农首页</title>
+    <link rel="stylesheet" href="css/global.css">
+    <script src="js/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery.sitebar-1.0.js"></script>
+</head>
+<body>
+<!--顶部信息-->
+<div class="top">
+    <div class="wrap">
+        <div class="app fl">应用<u></u>
+            <ul class="ul">
+                <li><i></i><a href="###">三农资讯网</a></li>
+                <li><i></i><a href="###">三农产品网</a></li>
+                <li><i></i><a href="###">鸿云商城</a></li>
+                <li><i></i><a href="###">三农产品采购</a></li>
+                <li><i></i><a href="###">三农龙头企业</a></li>
+                <li><i></i><a href="###">三农合作社</a></li>
+                <li><i></i><a href="###">三农专业户</a></li>
+                <li><i></i><a href="###">三农新科技推广</a></li>
+            </ul>
+        </div>
+        <span class="fl">三农首页</span>
+        <script>
+            var oDiv = document.querySelector('.app');
+            var oUl = document.querySelector('.ul');
+            oDiv.onclick = function () {
+                if (oUl.style.display == 'block') {
+                    oUl.style.display = 'none';
+                } else {
+                    oUl.style.display = 'block';
+                }
+            }
+        </script>
+        <div class="fr">
+            <span>欢迎，您好</span>
+            <i>|</i>
+            <span>登录</span>
+            <i>|</i>
+            <span>注册</span>
+            <i>|</i>
+            <span>忘记密码？</span>
+            <i>|</i>
+            <span>收藏</span>
+            <i>|</i>
+            <u></u>
+            <span>蝴蝶云</span>
+        </div>
+    </div>
+</div>
+<div class="header wrap clearfix">
+    <div class="clearfix fl">
+        <div class="logo fl"><img src="images/logo.jpg" width="75" height="75" alt=""></div>
+        <div class="fl">
+            <span>中国</span>
+            <select class="jd">
+                <option value="">清凉街道</option>
+                <option value="">清凉街道</option>
+            </select>
+        </div>
+        <div class="search fl">
+            <input type="text" placeholder="请输入您的搜索关键词...">
+            <i>|</i>
+            <select class="info">
+                <option value="">供求信息</option>
+                <option value="">供应信息</option>
+            </select>
+            <div class="zoom fr"></div>
+            <div class="hot">
+                <strong>热搜：</strong>
+                <em>猪 苹果 玉米 生猪 小尾寒羊 小麦 大豆</em>
+            </div>
+        </div>
+        <div class="tel fr"></div>
+    </div>
+</div>
+<!--导航-->
+<div class="nav">
+    <div class="wrap">
+        <ul>
+            <li><a class="curr" href="index.html">三农首页</a></li>
+            <li><a href="product.html">三农产品</a></li>
+            <li><a href="news.html">三农新闻</a></li>
+            <li><a href="cooperative.html">合作社</a></li>
+            <li><a href="science.html">科技推广</a></li>
+            <li><a href="dragon.html">龙头企业</a></li>
+            <li><a href="user.html">专业户</a></li>
+        </ul>
+    </div>
+</div>
+<div class="wrap">
+    <div class="banner1"><img src="images/index-ad1.png" alt="" width="1000" height="70"></div>
+    <div class="content1 clearfix">
+        <div class="lunbo fl ">
+            <ul class="imgs">
+                <li><img src="images/banner1.png" width="686" height="440" alt="1"></li>
+                <li><img src="images/banner2.png" width="686" height="440" alt="1"></li>
+                <li><img src="images/banner1.png" width="686" height="440" alt="1"></li>
+                <li><img src="images/banner2.png" width="686" height="440" alt="1"></li>
+                <li><img src="images/banner3.png" width="686" height="440" alt="1"></li>
+            </ul>
+            <ol class="btns">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <a href="###" class="prev">&lt;</a>
+            <a href="###" class="next">&gt;</a>
+        </div>
+        <script>
+            var t = null;
+            var index = 0; // 设置初始图片序号
+            var speed = 500; // 一幅图片切换时间
+            var interval = 2000; // 自动轮播图片的切换时间间隔
+            var w = $('.lunbo').width(); // 图片宽度
+            var n = $('.imgs').find('li').size(); // 图片总数(追加辅助图片之前)
+            var btns = $('.btns').find('li'); // 所有圆点
+            var first = $('.imgs').find('li').first(); // 图片列表中的第一幅图
+            var last = $('.imgs').find('li').last(); // 图片列表中的最后一幅图
+            $('.imgs').append(first.clone()); // 在图片列表最后添加上第一幅图
+            $('.imgs').prepend(last.clone()); // 在图片列表最前添加上最后一幅图
+            n = $('.imgs').find('li').size(); // 图片总数(追加辅助图片之后)
+            $('.imgs').width(w * n).css('left', -(index + 1) * w + 'px'); // 设置.imgs的宽度，并且根据index的设置，显示相应的图片
+            setBtns(); // 根据index的设置，设置圆点的默认激活位置
+            function move() { // 显示指定的图片
+                $('.imgs').animate({
+                        left: -(index + 1) * w + 'px'
+                    },
+                    speed, function () { // 回调函数，越界处理
+                        if ($('.imgs').css('left') == '-' + w * (n - 1) + 'px') {
+                            $('.imgs').css('left', '-' + w + 'px');
+                        }
+                        if ($('.imgs').css('left') == '0px') {
+                            $('.imgs').css('left', '-' + w * (n - 2) + 'px');
+                        }
+                    });
+                // 越界处理
+                if (index == n - 2) {
+                    index = 0;
+                }
+                if (index == -1) {
+                    index = n - 3;
+                }
+            }
+
+            function setBtns() {
+                btns.eq(index).addClass('active').siblings().removeClass('active'); // 将index对应的按钮添加激活类，其他按钮去掉激活类
+            }
+
+            $('.prev').click(function () {
+                index--;
+                move();
+                setBtns();
+            });
+            $('.next').click(function () {
+                index++;
+                move();
+                setBtns();
+            });
+            btns.click(function () {
+                index = $(this).index();
+                move();
+                setBtns();
+            });
+            $('.lunbo').hover(function () {
+                clearInterval(t);
+            }, function () {
+                t = setInterval("$('.next').click()", interval);
+            });
+            $('.lunbo').mouseout();
+        </script>
+        <div class="list fl clearfix">
+            <div class="top-bd clearfix">
+                <h5 class="fl">致富经</h5>
+                <span class="fr">+ more</span>
+            </div>
+            <ul>
+                <li><a href="###">带刺的生意赚来千万才</a></li>
+                <li><a href="###">昔日伤心地 今朝捡来千万财</a></li>
+                <li><a href="###">油变奶带来财富</a></li>
+                <li><a href="###">超大胆和他的“娃娃鱼”</a></li>
+                <li><a href="###">带刺的生意赚来千万才</a></li>
+                <li><a href="###">昔日伤心地 今朝捡来千万财</a></li>
+                <li><a href="###">油变奶带来财富</a></li>
+                <li><a href="###">超大胆和他的“娃娃鱼”</a></li>
+                <li><a href="###">昔日伤心地 今朝捡来千万财</a></li>
+                <li><a href="###">油变奶带来财富</a></li>
+                <li><a href="###">超大胆和他的“娃娃鱼”</a></li>
+                <li><a href="###">昔日伤心地 今朝捡来千万财</a></li>
+                <li><a href="###">油变奶带来财富</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content2 clearfix">
+        <div class="quote fl">
+            <h4>市场行情</h4>
+            <ul>
+                <li>池塘养殖刺参的清淤与消毒</li>
+                <li>提高鱼苗培育存活率的四个关键</li>
+                <li>防鱼儿浮头要及早查看相应征兆</li>
+                <li>雏鸵鸟腿部病症种类及其原因</li>
+                <li>鸵鸟的年龄鉴别</li>
+                <li>防鱼儿浮头要及早查看相应征兆</li>
+            </ul>
+        </div>
+        <div class="active fr">
+            <div class="title">
+                <h4 class="fl">最新动态</h4><span class="fr">+more</span>
+            </div>
+            <div class="btm clearfix">
+                <div class="img fl"><img src="images/index-active.png" width="250" height="166" alt=""></div>
+                <div class="rig fr">
+                    <h5>李嘉诚办公室悬挂的唯一的一幅书法</h5>
+                    <p>李嘉诚办公室悬挂的唯一的一幅书法</p>
+                    <ul>
+                        <li>浙江台州黄岩药山村杨梅礼肥成功<span>2018-05-20</span></li>
+                        <li>浙江台州黄岩药山村杨梅礼肥成功<span>2018-05-20</span></li>
+                        <li>浙江台州黄岩药山村杨梅礼肥成功<span>2018-05-20</span></li>
+                        <li>浙江台州黄岩药山村杨梅礼肥成功<span>2018-05-20</span></li>
+                        <li>浙江台州黄岩药山村杨梅礼肥成功<span>2018-05-20</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content3 clearfix">
+        <div class="tabs fl">
+            <ul>
+                <li class="on">求购信息</li>
+                <li>供应信息</li>
+            </ul>
+            <div class="info clearfix show">
+                <ol>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                </ol>
+                <ol>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                    <li>常年收购长白山野山参<span>2018-05-20</span></li>
+                </ol>
+            </div>
+            <div class="info clearfix">
+                <ol>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                </ol>
+                <ol>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                    <li>常年供应长白山野山参<span>2018-05-20</span></li>
+                </ol>
+            </div>
+        </div>
+        <script>
+            var oTab = document.querySelector(".tabs");
+            var oLi = oTab.querySelectorAll(".tabs ul li");
+            var oDiv = oTab.querySelectorAll(".tabs .info");
+
+            function tabChange(nIndex) {
+                for (var i = 0; i < oLi.length; i++) {
+                    oLi[i].className = "";
+                    oDiv[i].className = "";
+                }
+                oLi[nIndex].className = "on";
+                oDiv[nIndex].className = "show";
+            }
+
+            for (var i = 0; i < oLi.length; i++) {
+                oLi[i].tab = i;
+                oLi[i].onclick = function () {
+                    tabChange(this.tab);
+                }
+            }
+        </script>
+        <div class="img fr">
+            <img src="images/index-qiu.png" width="284" height="126" alt="">
+            <img src="images/index-qiu.png" width="284" height="126" alt="">
+        </div>
+        <img src="images/index-ad2.png" width="1000" height="78" alt="" style="margin-top: 20px;"></div>
+    <div class="content4 clearfix">
+        <div class="left fl">
+            <div class="plant clearfix">
+                <div class="toop clearfix">
+                    <h5 class="fl">种植技术</h5><span class="fr">+more</span>
+                </div>
+                <div class="btm clearfix">
+                    <div class="img fl"><img src="images/index-plant.png" width="300" height="200" alt=""></div>
+                    <ul class="fr">
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                        <li>五位苗木商人失败经历与教训</li>
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                        <li>五位苗木商人失败经历与教训</li>
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                        <li>五位苗木商人失败经历与教训</li>
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plant clearfix">
+                <div class="toop clearfix">
+                    <h5 class="fl">养殖技术</h5><span class="fr">+more</span>
+                </div>
+                <div class="btm clearfix">
+                    <div class="img fl"><img src="images/index-plant2.png" width="300" height="200" alt=""></div>
+                    <ul class="fr">
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                        <li>五位苗木商人失败经历与教训</li>
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                        <li>五位苗木商人失败经历与教训</li>
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                        <li>五位苗木商人失败经历与教训</li>
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="right fr">
+            <div class="tabs2">
+                <ul class="clearfix">
+                    <li class="on">种子树苗</li>
+                    <li>农药化肥</li>
+                </ul>
+                <ol>
+                    <li><span>1</span>小麦深加工前景工作</li>
+                    <li><span>2</span>小麦深加工前景工作</li>
+                    <li><span>3</span>小麦深加工前景工作</li>
+                    <li>小麦深加工前景工作</li>
+                </ol>
+                <div class="img">
+                    <img src="images/index-miao.png" width="286" height="191" alt="">
+                    <img src="images/index-qiu.png" width="284" height="126" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content4 clearfix">
+        <div class="left fr">
+            <div class="plant clearfix">
+                <div class="toop clearfix">
+                    <h5 class="fl">加工技术</h5><span class="fr">+more</span>
+                </div>
+                <div class="btm clearfix">
+                    <div class="img fl"><img src="images/index-plant.png" width="300" height="200" alt=""></div>
+                    <ul class="fr">
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                        <li>五位苗木商人失败经历与教训</li>
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                        <li>五位苗木商人失败经历与教训</li>
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                        <li>五位苗木商人失败经历与教训</li>
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="plant clearfix">
+                <div class="toop clearfix">
+                    <h5 class="fl">储运技术</h5><span class="fr">+more</span>
+                </div>
+                <div class="btm clearfix">
+                    <div class="img fl"><img src="images/index-plant2.png" width="300" height="200" alt=""></div>
+                    <ul class="fr">
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                        <li>五位苗木商人失败经历与教训</li>
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                        <li>五位苗木商人失败经历与教训</li>
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                        <li>五位苗木商人失败经历与教训</li>
+                        <li>福建宁德供应五谷杂粮，葡萄，橙子，中</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="right fl">
+            <div class="tabs2">
+                <ul class="clearfix">
+                    <li class="on">种子树苗</li>
+                    <li>农药化肥</li>
+                </ul>
+                <ol>
+                    <li><span>1</span>小麦深加工前景工作</li>
+                    <li><span>2</span>小麦深加工前景工作</li>
+                    <li><span>3</span>小麦深加工前景工作</li>
+                    <li>小麦深加工前景工作</li>
+                    <li>五位苗木商人失败经历与教训</li>
+                    <li>五位苗木商人失败经历与教训</li>
+                    <li>五位苗木商人失败经历与教训</li>
+                    <li>五位苗木商人失败经历与教训</li>
+                </ol>
+                <div class="good">
+                    <h6>优企介绍</h6>
+                    <img src="images/index-jian.png" width="150" height="150" alt="">
+                    <span>吉安金鑫电脑科技</span>
+                    <p>吉安金鑫电脑科技小麦深加工色前景工作工作小麦深加工色前景工作吉安金鑫电脑科技小麦深加</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content5 clearfix">
+        <div class="tabs3 clearfix">
+            <ul class="clearfix">
+                <li class="on">种植产品</li>
+                <li>养殖产品</li>
+                <li>农副特产</li>
+            </ul>
+            <dl class="clearfix">
+                <dd>瓜果蔬菜</dd>
+                <dd>粮油棉麻</dd>
+                <dd>苗木药材</dd>
+                <dd>农家土产</dd>
+            </dl>
+            <div class="fl"><img src="images/index-prod.png" width="432" height="432" alt=""></div>
+            <ol class="fr">
+                <li><img src="images/index-prod1.png" width="125" height="125" alt=""></li>
+                <li><img src="images/index-prod1.png" width="125" height="125" alt=""></li>
+                <li><img src="images/index-prod2.png" width="125" height="125" alt=""></li>
+                <li><img src="images/index-prod1.png" width="125" height="125" alt=""></li>
+                <li><img src="images/index-prod1.png" width="125" height="125" alt=""></li>
+                <li><img src="images/index-prod2.png" width="125" height="125" alt=""></li>
+                <li><img src="images/index-prod1.png" width="125" height="125" alt=""></li>
+                <li><img src="images/index-prod1.png" width="125" height="125" alt=""></li>
+                <li><img src="images/index-prod2.png" width="125" height="125" alt=""></li>
+                <li><img src="images/index-prod1.png" width="125" height="125" alt=""></li>
+                <li><img src="images/index-prod1.png" width="125" height="125" alt=""></li>
+                <li><img src="images/index-prod3.png" width="125" height="125" alt=""></li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="about">
+    <div class="footer-con">
+        <a href="">关于我们</a><span>|</span>
+        <a href="">联系我们</a><span>|</span>
+        <a href="">网站声明</a><span>|</span>
+        <a href="">隐私权保护规范</a><span>|</span>
+        <a href="">广告合作</a><span>|</span>
+        <a href="">人才招聘</a><span>|</span>
+        <a href="">友情链接</a>
+    </div>
+</div>
+<div class="footer clearfix">
+    <div class="footer-con">
+        <div class="ewm fl"><img src="images/ewm.png" width="151" height="151" alt=""></div>
+        <div class="info fr">
+            <ul>
+                <li>咨询投诉：4000-138-919</li>
+                <li>地址：河北省琢州市范阳中路槐林西街36号</li>
+                <li>邮编：032750</li>
+                <li>咨询/投诉电子邮箱：hongmeng@worldhm.com</li>
+                <li>法律顾问：北京市康达律师事务所</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

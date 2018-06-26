@@ -1,0 +1,507 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三农专业户</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/user.css">
+    <script src="js/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--顶部信息-->
+<div class="top">
+    <div class="wrap">
+        <div class="app fl">应用<u></u>
+            <ul class="ul">
+                <li><i></i><a href="###">三农资讯网</a></li>
+                <li><i></i><a href="###">三农产品网</a></li>
+                <li><i></i><a href="###">鸿云商城</a></li>
+                <li><i></i><a href="###">三农产品采购</a></li>
+                <li><i></i><a href="###">三农龙头企业</a></li>
+                <li><i></i><a href="###">三农合作社</a></li>
+                <li><i></i><a href="###">三农专业户</a></li>
+                <li><i></i><a href="###">三农新科技推广</a></li>
+            </ul>
+        </div>
+        <span class="fl">三农首页</span>
+        <script>
+            var oDiv = document.querySelector('.app');
+            var oUl = document.querySelector('.ul');
+            oDiv.onclick = function () {
+                if (oUl.style.display == 'block') {
+                    oUl.style.display = 'none';
+                } else {
+                    oUl.style.display = 'block';
+                }
+            }
+        </script>
+        <div class="fr">
+            <span>欢迎，您好</span>
+            <i>|</i>
+            <span>登录</span>
+            <i>|</i>
+            <span>注册</span>
+            <i>|</i>
+            <span>忘记密码？</span>
+            <i>|</i>
+            <span>收藏</span>
+            <i>|</i>
+            <u></u>
+            <span>蝴蝶云</span>
+        </div>
+    </div>
+</div>
+<div class="header wrap clearfix">
+    <div class="clearfix fl">
+        <div class="logo fl"><img src="images/logo.jpg" width="75" height="75" alt=""></div>
+        <div class="fl">
+            <span>中国</span>
+            <select class="jd">
+                <option value="">清凉街道</option>
+                <option value="">清凉街道</option>
+            </select>
+        </div>
+        <div class="search fl">
+            <input type="text" placeholder="请输入您的搜索关键词...">
+            <i>|</i>
+            <select class="info">
+                <option value="">供求信息</option>
+                <option value="">供应信息</option>
+            </select>
+            <div class="zoom fr"></div>
+            <div class="hot">
+                <strong>热搜：</strong>
+                <em>猪 苹果 玉米 生猪 小尾寒羊 小麦 大豆</em>
+            </div>
+        </div>
+        <div class="tel fr"></div>
+    </div>
+</div>
+<!--导航-->
+<div class="nav">
+    <div class="wrap">
+        <ul>
+            <li><a href="index.html">三农首页</a></li>
+            <li><a href="product.html">三农产品</a></li>
+            <li><a href="news.html">三农新闻</a></li>
+            <li><a href="cooperative.html">合作社</a></li>
+            <li><a href="science.html">科技推广</a></li>
+            <li><a href="dragon.html">龙头企业</a></li>
+            <li><a class="curr" href="user.html">专业户</a></li>
+        </ul>
+    </div>
+</div>
+<div class="wrap">
+    <div class="banner"><img src="images/user-1.png" width="1000" height="90" alt=""></div>
+    <div class="content1 clearfix">
+        <div class="lunbo fl ">
+            <ul class="imgs">
+                <li><img src="images/drag-banner.png" alt="1"></li>
+                <li><img src="images/drag-banner.png" alt="1"></li>
+                <li><img src="images/drag-banner.png" alt="1"></li>
+                <li><img src="images/drag-banner.png" alt="1"></li>
+                <li><img src="images/drag-banner.png" alt="1"></li>
+            </ul>
+            <ol class="btns">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <a href="###" class="prev">&lt;</a>
+            <a href="###" class="next">&gt;</a>
+        </div>
+        <script>
+            var t = null;
+            var index = 0; // 设置初始图片序号
+            var speed = 500; // 一幅图片切换时间
+            var interval = 2000; // 自动轮播图片的切换时间间隔
+            var w = $('.lunbo').width(); // 图片宽度
+            var n = $('.imgs').find('li').size(); // 图片总数(追加辅助图片之前)
+            var btns = $('.btns').find('li'); // 所有圆点
+            var first = $('.imgs').find('li').first(); // 图片列表中的第一幅图
+            var last = $('.imgs').find('li').last(); // 图片列表中的最后一幅图
+            $('.imgs').append(first.clone()); // 在图片列表最后添加上第一幅图
+            $('.imgs').prepend(last.clone()); // 在图片列表最前添加上最后一幅图
+            n = $('.imgs').find('li').size(); // 图片总数(追加辅助图片之后)
+            $('.imgs').width(w * n).css('left', -(index + 1) * w + 'px'); // 设置.imgs的宽度，并且根据index的设置，显示相应的图片
+            setBtns(); // 根据index的设置，设置圆点的默认激活位置
+            function move() { // 显示指定的图片
+                $('.imgs').animate({
+                        left: -(index + 1) * w + 'px'
+                    },
+                    speed, function () { // 回调函数，越界处理
+                        if ($('.imgs').css('left') == '-' + w * (n - 1) + 'px') {
+                            $('.imgs').css('left', '-' + w + 'px');
+                        }
+                        if ($('.imgs').css('left') == '0px') {
+                            $('.imgs').css('left', '-' + w * (n - 2) + 'px');
+                        }
+                    });
+                // 越界处理
+                if (index == n - 2) {
+                    index = 0;
+                }
+                if (index == -1) {
+                    index = n - 3;
+                }
+            }
+
+            function setBtns() {
+                btns.eq(index).addClass('active').siblings().removeClass('active'); // 将index对应的按钮添加激活类，其他按钮去掉激活类
+            }
+
+            $('.prev').click(function () {
+                index--;
+                move();
+                setBtns();
+            });
+            $('.next').click(function () {
+                index++;
+                move();
+                setBtns();
+            });
+            btns.click(function () {
+                index = $(this).index();
+                move();
+                setBtns();
+            });
+            $('.lunbo').hover(function () {
+                clearInterval(t);
+            }, function () {
+                t = setInterval("$('.next').click()", interval);
+            });
+            $('.lunbo').mouseout();
+        </script>
+        <div class="right fr">
+            <h4>风云榜首</h4>
+            <div class="clearfix" style="margin-bottom: 10px;">
+                <div class="fl">
+                    <img src="images/user-2.png" width="80" height="80" alt="">
+                </div>
+                <div class="fr">
+                    <div class="clearfix">
+                        <span>陈某某的生活的生...</span>
+                        <p>鲍鱼只有一片贝壳，它
+                            是如何对付天敌的?海参
+                            没有眼睛...<em>【详细】</em></p>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix" style="margin-bottom: 10px;">
+                <div class="fl">
+                    <img src="images/user-2.png" width="80" height="80" alt="">
+                </div>
+                <div class="fr">
+                    <div class="clearfix">
+                        <span>陈某某的生活的生...</span>
+                        <p>鲍鱼只有一片贝壳，它
+                            是如何对付天敌的?海参
+                            没有眼睛...<em>【详细】</em></p>
+                    </div>
+                </div>
+            </div>
+            <ol>
+                <li>新型经营主体助推铁岭土地流转</li>
+                <li>种地机械化 在家拿分红 得闲去打</li>
+                <li>山区农民让蚕宝宝吐“金丝”</li>
+            </ol>
+        </div>
+    </div>
+    <div class="content2 clearfix">
+        <div class="left fl">
+            <ul class="long">
+                <li class="on">行业动态</li>
+            </ul>
+            <ol>
+                <li>新型经营主体助推铁岭土地流转</li>
+                <li>种地机械化 在家拿分红 得闲去打</li>
+                <li>山区农民让蚕宝宝吐“金丝”</li>
+                <li>新型经营主体助推铁岭土地流转</li>
+                <li>种地机械化 在家拿分红 得闲去打</li>
+                <li>山区农民让蚕宝宝吐“金丝”</li>
+                <li>新型经营主体助推铁岭土地流转</li>
+                <li>种地机械化 在家拿分红 得闲去打</li>
+                <li>山区农民让蚕宝宝吐“金丝”</li>
+                <li>新型经营主体助推铁岭土地流转</li>
+                <li>种地机械化 在家拿分红 得闲去打</li>
+                <li>山区农民让蚕宝宝吐“金丝”</li>
+            </ol>
+        </div>
+        <div class="mid fl">
+            <ul class="long">
+                <li class="on">政策扶持</li>
+            </ul>
+            <ol>
+                <li>新型经营主体助推铁岭土地流转<span>2018-05-23</span></li>
+                <li>种地机械化 在家拿分红 得闲去打<span>2018-05-23</span></li>
+                <li>山区农民让蚕宝宝吐“金丝”<span>2018-05-23</span></li>
+                <li>新型经营主体助推铁岭土地流转<span>2018-05-23</span></li>
+                <li>种地机械化 在家拿分红 得闲去打<span>2018-05-23</span></li>
+                <li>山区农民让蚕宝宝吐“金丝”<span>2018-05-23</span></li>
+                <li>新型经营主体助推铁岭土地流转<span>2018-05-23</span></li>
+                <li>种地机械化 在家拿分红 得闲去打<span>2018-05-23</span></li>
+                <li>山区农民让蚕宝宝吐“金丝”<span>2018-05-23</span></li>
+                <li>新型经营主体助推铁岭土地流转<span>2018-05-23</span></li>
+                <li>种地机械化 在家拿分红 得闲去打<span>2018-05-23</span></li>
+                <li>山区农民让蚕宝宝吐“金丝”<span>2018-05-23</span></li>
+            </ol>
+        </div>
+        <div class="right fr">
+            <ul class="long">
+                <li class="on">专家访谈</li>
+            </ul>
+            <ol>
+                <li>新型经营主体助推铁岭土地流转</li>
+                <li>种地机械化 在家拿分红 得闲去打</li>
+                <li>山区农民让蚕宝宝吐“金丝”</li>
+                <li>新型经营主体助推铁岭土地流转</li>
+                <li>种地机械化 在家拿分红 得闲去打</li>
+                <li>山区农民让蚕宝宝吐“金丝”</li>
+                <li>新型经营主体助推铁岭土地流转</li>
+                <li>种地机械化 在家拿分红 得闲去打</li>
+                <li>新型经营主体助推铁岭土地流转</li>
+            </ol>
+            <div class="img"><img src="images/user-3.png" width="246" height="100" alt=""></div>
+        </div>
+    </div>
+    <div class="content3 clearfix">
+        <div class="left">
+            <ul class="long">
+                <li class="on">专业名录</li>
+            </ul>
+            <div>
+                <div class="fl">
+                    <div id="banner2">
+                        <ul class="ul2">
+                            <li><img src="images/banner1.png" width="380" height="230" alt=""></li>
+                            <li><img src="images/hzs5.png" width="380" height="230" alt=""></li>
+                            <li><img src="images/hzs5.png" width="380" height="230" alt=""></li>
+                            <li><img src="images/user-4.png" width="380" height="230" alt=""></li>
+                            <li><img src="images/user-5.png" width="380" height="230" alt=""></li>
+                        </ul>
+                        <div class="page">
+                            <div class="oPrev">&lt;</div>
+                            <div class="oNext">&gt;</div>
+                        </div>
+                        <div class="btn">
+                            <span class="on"></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <script>
+                        var oBox = document.querySelector('#banner2');
+                        var oUl2 = document.querySelector('.ul2');
+                        var oLi3 = document.querySelectorAll('.ul2 li');
+                        var oPage = document.querySelectorAll('.page div');
+                        var oBtn = document.querySelectorAll('.btn span');
+                        var ind = 0;
+                        var num = 0;
+                        var timer;
+                        for (var i = 0, len = oBtn.length; i < len; i++) {
+                            oBtn[i].i = i;
+                            oBtn[i].onclick = function () {
+                                oBtn[ind].className = '';
+                                ind = this.i;
+                                this.className = 'on';
+                                oUl2.style.left = -380 * ind + 'px';
+                            }
+                        }
+                        for (var i = 0, len = oPage.length; i < len; i++) {
+                            oPage[i].b = i;
+                            oPage[i].onclick = function () {
+                                oBtn[ind].className = '';
+                                num = this.b;
+                                if (num) {
+                                    ind++;
+                                    if (ind > 4) {
+                                        ind = 0;
+                                    }
+                                } else {
+                                    ind--;
+                                    if (ind < 0) {
+                                        ind = 4;
+                                    }
+                                }
+                                oBtn[ind].className = 'on';
+                                oUl2.style.left = -380 * ind + 'px';
+                            }
+                        }
+
+                        function play() {
+                            timer = setInterval(function () {
+                                oBtn[ind].className = '';
+                                ind++;
+                                if (ind > 4) {
+                                    ind = 0;
+                                }
+                                oBtn[ind].className = 'on';
+                                oUl2.style.left = -380 * ind + 'px';
+                            }, 2000);
+                        }
+
+                        oBox.onmouseover = function () {
+                            clearInterval(timer);
+                        }
+                        oBox.onmouseout = function () {
+                            play();
+                        }
+                        play();
+                    </script>
+                    <div>
+                        <p>广西兴安：“农旅结合”
+                            这里的农民靠“太阳”挣
+                            广西兴安：“农旅结合”
+                            这里的农民靠“太阳”挣</p>
+                        <p>广西兴安：“农旅结合”
+                            这里的农民靠“太阳”挣
+                            广西兴安：“农旅结合”
+                            这里的农民靠“太阳”挣</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right fl">
+            <ol>
+                <li><span>1</span>推进供给侧结构性改革 促提质增效转型升级</li>
+                <li><span>2</span>把握农业供给侧结构性改革重点</li>
+                <li><span>3</span>多方合力 坚决打赢脱贫攻坚战</li>
+                <li><span>4</span>农业产业调结构调出“五谷丰登”</li>
+                <li><span>5</span>京津冀品种联审共推 助力农业结构调整</li>
+                <li><span>6</span>切实把精准扶贫精准脱贫落到实处</li>
+                <li><span></span>推进农业供给侧结构性改革 提高农业竞争力</li>
+                <li><span></span>促进先富帮后富实现共同富裕</li>
+                <li><span></span>肥料业供给侧发力推进转型升级</li>
+                <li><span></span>推进供给侧结构性改革 促提质增效转型升级</li>
+            </ol>
+        </div>
+        <div class="expert fr">
+            <div>
+                <ul class="long">
+                    <li class="on">专家名录</li>
+                </ul>
+                <div class="img"><img src="images/user-6.png" width="150" height="100" alt=""></div>
+                <span>贾师傅</span>
+                <p>胡元勇的双孢菇每天一两百斤的产量在
+                    进入市场后不久就被抢购一空，每天的
+                    收入可达一千多元...<em>【详细】</em></p>
+            </div>
+            <div>
+                <p>胡元勇的双孢菇每天一两百斤的产量在
+                    进入市场后不久就被抢购一空，每天的
+                    收入可达一千多元...<em>【详细】</em></p>
+            </div>
+        </div>
+    </div>
+    <div class="banner"><img src="images/user-1.png" width="1000" height="90" alt=""></div>
+    <div class="content4 clearfix">
+        <div class="left fl">
+            <ul class="long">
+                <li class="on">乡绅土豪</li>
+                <li>新兵蛋子</li>
+            </ul>
+            <div class="fl">
+                <ol>
+                    <li>新型经营主体助推铁岭土地流转</li>
+                    <li>种地机械化 在家拿分红 得闲去打</li>
+                    <li>山区农民让蚕宝宝吐“金丝”</li>
+                    <li>新型经营主体助推铁岭土地流转</li>
+                    <li>种地机械化 在家拿分红 得闲去打</li>
+                    <li>山区农民让蚕宝宝吐“金丝”</li>
+                    <li>新型经营主体助推铁岭土地流转</li>
+                    <li>种地机械化 在家拿分红 得闲去打</li>
+                    <li>山区农民让蚕宝宝吐“金丝”</li>
+                </ol>
+            </div>
+            <div class="fr">
+                <dl class="clearfix">
+                    <dd><img src="images/user-7.png" width="150" height="100" alt=""></dd>
+                    <dd><img src="images/user-7.png" width="150" height="100" alt=""></dd>
+                    <dd><img src="images/user-7.png" width="150" height="100" alt=""></dd>
+                    <dd><img src="images/user-7.png" width="150" height="100" alt=""></dd>
+                    <dd><img src="images/user-7.png" width="150" height="100" alt=""></dd>
+                    <dd><img src="images/user-7.png" width="150" height="100" alt=""></dd>
+                </dl>
+            </div>
+        </div>
+        <div class="right fr">
+            <ul class="long">
+                <li class="on">互助合作</li>
+            </ul>
+            <ol>
+                <li>新型经营主体助推铁岭土地流转</li>
+                <li>种地机械化 在家拿分红 得闲去打</li>
+                <li>山区农民让蚕宝宝吐“金丝”</li>
+                <li>新型经营主体助推铁岭土地流转</li>
+                <li>种地机械化 在家拿分红 得闲去打</li>
+                <li>山区农民让蚕宝宝吐“金丝”</li>
+                <li>新型经营主体助推铁岭土地流转</li>
+                <li>种地机械化 在家拿分红 得闲去打</li>
+                <li>山区农民让蚕宝宝吐“金丝”</li>
+            </ol>
+        </div>
+    </div>
+    <div class="content5 clearfix">
+        <div class="left fl">
+            <ul class="long">
+                <li class="on">聚会活动</li>
+            </ul>
+            <div>
+                <ol class="fl">
+                    <li>新型经营主体助推铁岭土地流转<span class="fr">2018-05-24</span></li>
+                    <li>种地机械化 在家拿分红 得闲去打<span class="fr">2018-05-24</span></li>
+                    <li>山区农民让蚕宝宝吐“金丝”<span class="fr">2018-05-24</span></li>
+                    <li>新型经营主体助推铁岭土地流转<span class="fr">2018-05-24</span></li>
+                    <li>种地机械化 在家拿分红 得闲去打<span class="fr">2018-05-24</span></li>
+                    <li>山区农民让蚕宝宝吐“金丝”<span class="fr">2018-05-24</span></li>
+                    <li>新型经营主体助推铁岭土地流转<span class="fr">2018-05-24</span></li>
+                </ol>
+                <ol class="fr">
+                    <li>新型经营主体助推铁岭土地流转<span class="fr">2018-05-24</span></li>
+                    <li>种地机械化 在家拿分红 得闲去打<span class="fr">2018-05-24</span></li>
+                    <li>山区农民让蚕宝宝吐“金丝”<span class="fr">2018-05-24</span></li>
+                    <li>新型经营主体助推铁岭土地流转<span class="fr">2018-05-24</span></li>
+                    <li>种地机械化 在家拿分红 得闲去打<span class="fr">2018-05-24</span></li>
+                    <li>山区农民让蚕宝宝吐“金丝”<span class="fr">2018-05-24</span></li>
+                    <li>新型经营主体助推铁岭土地流转<span class="fr">2018-05-24</span></li>
+                </ol>
+            </div>
+        </div>
+        <div class="right  fr">
+            <div class="img"><img src="images/user-8.png" width="248" height="136" alt=""></div>
+            <div class="img"><img src="images/user-8.png" width="248" height="136" alt=""></div>
+        </div>
+    </div>
+</div>
+<div class="about">
+    <div class="footer-con">
+        <a href="">关于我们</a><span>|</span>
+        <a href="">联系我们</a><span>|</span>
+        <a href="">网站声明</a><span>|</span>
+        <a href="">隐私权保护规范</a><span>|</span>
+        <a href="">广告合作</a><span>|</span>
+        <a href="">人才招聘</a><span>|</span>
+        <a href="">友情链接</a>
+    </div>
+</div>
+<div class="footer clearfix">
+    <div class="footer-con">
+        <div class="ewm fl"><img src="images/ewm.png" width="151" height="151" alt=""></div>
+        <div class="info fr">
+            <ul>
+                <li>咨询投诉：4000-138-919</li>
+                <li>地址：河北省琢州市范阳中路槐林西街36号</li>
+                <li>邮编：032750</li>
+                <li>咨询/投诉电子邮箱：hongmeng@worldhm.com</li>
+                <li>法律顾问：北京市康达律师事务所</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script></script>
+</body>
+</html>

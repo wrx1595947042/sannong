@@ -1,0 +1,183 @@
+.lunbo {
+    width: 748px;
+    height: 316px;
+    position: relative;
+    overflow: hidden;
+}
+.imgs {
+    position: absolute;
+    top: 0;
+}
+.imgs li {
+    float: left;
+    width: 748px;
+    height: 316px;
+}
+.btns {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    text-align: center;
+}
+.btns li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.btns .active {
+    background: #fff;
+}
+.prev,.next {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 80px;
+    margin-top: -40px;
+    font-size: 30px;
+    color: #fff;
+    font-family: '宋体';
+    text-align: center;
+    line-height: 80px;
+    background: rgba(0,0,0,.5);
+}
+.prev {
+    left: 0;
+}
+.next {
+    right: 0;
+}
+.content1{
+    margin-top: 20px;
+}
+.content1,.content2,.content3,.content4{
+    margin-bottom: 20px;
+}
+.content1 .intro{
+    width: 252px;
+    padding: 20px 26px 24px 32px;
+    background-color: #F1F1F1;
+    box-sizing: border-box;
+}
+.content1 .intro h2{
+    font-size: 16px;
+    text-align: center;
+}
+.content1 .intro p{
+    font-size: 12px;
+    line-height: 20px;
+    color: #656565;
+}
+.content1 .intro p span{
+    color: #FF9B13;
+}
+
+.content2 .character{
+    width: 660px;
+}
+ul.long{
+    height: 40px;
+    background-color: #197427;
+    line-height: 40px;
+}
+ul.long li{
+    float: left;
+    width: 118px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+ul.long li.on{
+    width: 118px;
+    height: 36px;
+    margin-top: 2px;
+    margin-left: 2px;
+    background-color: #fff;
+    line-height: 36px;
+    color: #333;
+}
+.content2 .character ol li{
+    float: left;
+    margin-right: 15px;
+    margin-top: 6px;
+}
+.content2 .character ol li:nth-last-child(1){
+    margin-right: 0;
+}
+.content2 .character dl dd{
+    line-height: 30px;
+}
+.content2 .character dl dd::before{
+    content: '•';
+    color: #48A324;
+    margin-right: 4px;
+}
+.content2 .right{
+    width: 300px;
+}
+.content2 .right ol{
+    margin-top: 14px;
+}
+.content2 .right ol li{
+    line-height: 30px;
+}
+.content2 .right ol li span{
+    padding-right: 15px;
+}
+.content2 .right ol li:nth-last-child(2) span,.content2 .right ol li:nth-last-child(1) span{
+    padding-right: 23px;
+}
+
+.content3 ul{
+    margin-bottom: 20px;
+}
+.content3 h4{
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #48A324;
+    color: #fff;
+}
+.content3 .left,.content3 .mid{
+    width: 320px;
+    margin: 0 10px;
+}
+.content3 .left ol li,.content3 .mid ol li,.content3 .right ol li{
+    line-height: 30px;
+}
+.content3 .left dl dd,.content3 .mid dl dd{
+    display: flex;
+    line-height: 30px;
+}
+.content3 .left dl dd span,.content3 .mid dl dd span{
+    margin: auto;
+}
+.content3 .img{
+    margin: 20px 0;
+}
+
+.content4 ul{
+    margin-bottom: 20px;
+}
+.content4 .left .fl ol li{
+    line-height: 30px;
+}
+.content4 .left .fl ol li::before{
+    content: '•';
+    color: #48A324;
+    margin-right: 4px;
+}
+.content4 .left .fl img{
+    padding-right: 26px;
+}
+.content4 .right{
+    width: 300px;
+}
+.content4 .img{
+    width: 160px;
+    margin: 0 auto;
+    padding: 20px 0;
+}

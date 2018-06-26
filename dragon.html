@@ -1,0 +1,365 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>龙头企业</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/dragon.css">
+    <script src="js/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--顶部信息-->
+<div class="top">
+    <div class="wrap">
+        <div class="app fl">应用<u></u>
+            <ul class="ul">
+                <li><i></i><a href="###">三农资讯网</a></li>
+                <li><i></i><a href="###">三农产品网</a></li>
+                <li><i></i><a href="###">鸿云商城</a></li>
+                <li><i></i><a href="###">三农产品采购</a></li>
+                <li><i></i><a href="###">三农龙头企业</a></li>
+                <li><i></i><a href="###">三农合作社</a></li>
+                <li><i></i><a href="###">三农专业户</a></li>
+                <li><i></i><a href="###">三农新科技推广</a></li>
+            </ul>
+        </div>
+        <span class="fl">三农首页</span>
+        <script>
+            var oDiv = document.querySelector('.app');
+            var oUl = document.querySelector('.ul');
+            oDiv.onclick = function () {
+                if (oUl.style.display == 'block') {
+                    oUl.style.display = 'none';
+                } else {
+                    oUl.style.display = 'block';
+                }
+            }
+        </script>
+        <div class="fr">
+            <span>欢迎，您好</span>
+            <i>|</i>
+            <span>登录</span>
+            <i>|</i>
+            <span>注册</span>
+            <i>|</i>
+            <span>忘记密码？</span>
+            <i>|</i>
+            <span>收藏</span>
+            <i>|</i>
+            <u></u>
+            <span>蝴蝶云</span>
+        </div>
+    </div>
+</div>
+<div class="header wrap clearfix">
+    <div class="clearfix fl">
+        <div class="logo fl"><img src="images/logo.jpg" width="75" height="75" alt=""></div>
+        <div class="fl">
+            <span>中国</span>
+            <select class="jd">
+                <option value="">清凉街道</option>
+                <option value="">清凉街道</option>
+            </select>
+        </div>
+        <div class="search fl">
+            <input type="text" placeholder="请输入您的搜索关键词...">
+            <i>|</i>
+            <select class="info">
+                <option value="">供求信息</option>
+                <option value="">供应信息</option>
+            </select>
+            <div class="zoom fr"></div>
+            <div class="hot">
+                <strong>热搜：</strong>
+                <em>猪 苹果 玉米 生猪 小尾寒羊 小麦 大豆</em>
+            </div>
+        </div>
+        <div class="tel fr"></div>
+    </div>
+</div>
+<!--导航-->
+<div class="nav">
+    <div class="wrap">
+        <ul>
+            <li><a href="index.html">三农首页</a></li>
+            <li><a href="product.html">三农产品</a></li>
+            <li><a href="news.html">三农新闻</a></li>
+            <li><a href="cooperative.html">合作社</a></li>
+            <li><a href="science.html">科技推广</a></li>
+            <li><a class="curr" href="dragon.html">龙头企业</a></li>
+            <li><a href="user.html">专业户</a></li>
+        </ul>
+    </div>
+</div>
+<div class="wrap">
+    <div class="content1 clearfix">
+        <div class="lunbo fl ">
+            <ul class="imgs">
+                <li><img src="images/drag-banner.png" alt="1"></li>
+                <li><img src="images/drag-banner.png" alt="1"></li>
+                <li><img src="images/drag-banner.png" alt="1"></li>
+                <li><img src="images/drag-banner.png" alt="1"></li>
+                <li><img src="images/drag-banner.png" alt="1"></li>
+            </ul>
+            <ol class="btns">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <a href="###" class="prev">&lt;</a>
+            <a href="###" class="next">&gt;</a>
+        </div>
+        <script>
+            var t=null;
+            var index=0; // 设置初始图片序号
+            var speed=500; // 一幅图片切换时间
+            var interval=2000; // 自动轮播图片的切换时间间隔
+            var w=$('.lunbo').width(); // 图片宽度
+            var n=$('.imgs').find('li').size(); // 图片总数(追加辅助图片之前)
+            var btns=$('.btns').find('li'); // 所有圆点
+            var first=$('.imgs').find('li').first(); // 图片列表中的第一幅图
+            var last=$('.imgs').find('li').last(); // 图片列表中的最后一幅图
+            $('.imgs').append(first.clone()); // 在图片列表最后添加上第一幅图
+            $('.imgs').prepend(last.clone()); // 在图片列表最前添加上最后一幅图
+            n=$('.imgs').find('li').size(); // 图片总数(追加辅助图片之后)
+            $('.imgs').width(w*n).css('left',-(index+1)*w+'px'); // 设置.imgs的宽度，并且根据index的设置，显示相应的图片
+            setBtns(); // 根据index的设置，设置圆点的默认激活位置
+            function move() { // 显示指定的图片
+                $('.imgs').animate({
+                        left: -(index+1)*w+'px'},
+                    speed, function() { // 回调函数，越界处理
+                        if($('.imgs').css('left')=='-'+w*(n-1)+'px'){
+                            $('.imgs').css('left','-'+w+'px');
+                        }
+                        if($('.imgs').css('left')=='0px'){
+                            $('.imgs').css('left','-'+w*(n-2)+'px');
+                        }
+                    });
+                // 越界处理
+                if(index==n-2){
+                    index=0;
+                }
+                if(index==-1){
+                    index=n-3;
+                }
+            }
+            function setBtns() {
+                btns.eq(index).addClass('active').siblings().removeClass('active'); // 将index对应的按钮添加激活类，其他按钮去掉激活类
+            }
+            $('.prev').click(function() {
+                index--;
+                move();
+                setBtns();
+            });
+            $('.next').click(function() {
+                index++;
+                move();
+                setBtns();
+            });
+            btns.click(function() {
+                index=$(this).index();
+                move();
+                setBtns();
+            });
+            $('.lunbo').hover(function() {
+                clearInterval(t);
+            },function() {
+                t=setInterval("$('.next').click()",interval);
+            });
+            $('.lunbo').mouseout();
+        </script>
+        <div class="intro fr">
+            <h2>云投集团</h2>
+            <p> 云南省投资控股集团有限公司(下
+                称云投集团）前身云南省开发投资
+                有限公司，是经云南省人民政府云
+                政发〔1995〕195号文件批准, 于
+                1997年9月5日注册成立的大型国
+                有独资企业。2007年9月，根据公
+                司业务发展和集团化管控需要，正
+                式设立组建集团，注册资本81亿元
+                是直属省人民政府、由省国资委履
+                行出资人职责的大型国有独资企业
+                云投集团是中国投资协会国投委副
+                会长单位、云南省投资协会会长单
+                位，作为我省成立...<span>【详细】</span>
+            </p>
+        </div>
+    </div>
+    <div class="content2 clearfix">
+        <div class="left fl">
+            <div class="character">
+                <ul class="long">
+                    <li class="on">企业人物</li>
+                    <li>领袖精英</li>
+                    <li>专业人士</li>
+                    <li>致富能手</li>
+                    <li>初出茅庐</li>
+                </ul>
+                <ol>
+                    <li><img src="images/dra-1.png" width="120" height="150" alt=""></li>
+                    <li><img src="images/dra-1.png" width="120" height="150" alt=""></li>
+                    <li><img src="images/dra-1.png" width="120" height="150" alt=""></li>
+                    <li><img src="images/dra-1.png" width="120" height="150" alt=""></li>
+                    <li><img src="images/dra-1.png" width="120" height="150" alt=""></li>
+                </ol>
+                <dl class="fl">
+                    <dd>中央深改组开会 12项改革方案新鲜出炉</dd>
+                    <dd>社保缴费基数将调整 低收入者到手</dd>
+                    <dd>袁隆平:中国水稻不能以牺牲产量为代</dd>
+                    <dd>土壤污染触目惊心 多省酝酿"土十条"地方</dd>
+                    <dd>袁隆平:中国水稻不能以牺牲产量为代</dd>
+                    <dd>袁隆平:中国水稻不能以牺牲产量为代</dd>
+                </dl>
+                <dl class="fr">
+                    <dd>中央深改组开会 12项改革方案新鲜出炉</dd>
+                    <dd>社保缴费基数将调整 低收入者到手</dd>
+                    <dd>袁隆平:中国水稻不能以牺牲产量为代</dd>
+                    <dd>土壤污染触目惊心 多省酝酿"土十条"地方</dd>
+                    <dd>袁隆平:中国水稻不能以牺牲产量为代</dd>
+                    <dd>袁隆平:中国水稻不能以牺牲产量为代</dd>
+                </dl>
+            </div>
+        </div>
+        <div class="right fr">
+            <div class="ranking">
+                <ul class="long">
+                    <li class="on">名企排行</li>
+                </ul>
+                <ol>
+                    <li><span>1</span>信息化助力化肥农药使用量“零增长”</li>
+                    <li><span>2</span>去年我国农药化肥利用减少农业成本</li>
+                    <li><span>3</span>连云港市赣榆区开展“红盾护农</li>
+                    <li><span>4</span>机能水代替化肥农药 成本降低百</li>
+                    <li><span>5</span>浙江：化肥农药减了 产量质量不降</li>
+                    <li><span>6</span>中国化工集团 中化集团双双</li>
+                    <li><span>7</span>河南商丘专项执法检查为农资市场</li>
+                    <li><span>8</span>信息化助力化肥农药使用量“零增</li>
+                    <li><span>9</span>去年我国农药化肥利用减少农</li>
+                    <li><span></span>连云港市赣榆区开展“红盾护农保秋</li>
+                    <li><span></span>河南商丘专项执法检查为农资市场</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="content3 clearfix">
+        <ul class="long">
+            <li class="on">产业发展</li>
+        </ul>
+        <div class="left fl">
+            <h4>政策研究</h4>
+            <ol>
+                <li>中央深改组开会 12项改革方案新鲜出炉</li>
+                <li>社保缴费基数将调整 低收入者到手</li>
+                <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+                <li>土壤污染触目惊心 多省酝酿"土十条"地方</li>
+                <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+                <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+            </ol>
+            <div class="img"><img src="images/dra-2.png" width="320" height="100" alt=""></div>
+            <dl>
+                <dd><span>寿光市新世纪种苗有限公司</span><span>种子</span><span>省级龙头企业</span></dd>
+                <dd><span>寿光市新世纪种苗有限公司</span><span>种子</span><span>省级龙头企业</span></dd>
+                <dd><span>寿光市新世纪种苗有限公司</span><span>种子</span><span>省级龙头企业</span></dd>
+                <dd><span>寿光市新世纪种苗有限公司</span><span>种子</span><span>省级龙头企业</span></dd>
+                <dd><span>寿光市新世纪种苗有限公司</span><span>种子</span><span>省级龙头企业</span></dd>
+                <dd><span>寿光市新世纪种苗有限公司</span><span>种子</span><span>省级龙头企业</span></dd>
+            </dl>
+        </div>
+        <div class="mid fl">
+            <h4>项目合作 | 产业集群</h4>
+            <ol>
+                <li>中央深改组开会 12项改革方案新鲜出炉</li>
+                <li>社保缴费基数将调整 低收入者到手</li>
+                <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+                <li>土壤污染触目惊心 多省酝酿"土十条"地方</li>
+                <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+                <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+            </ol>
+            <div class="img"><img src="images/dra-2.png" width="320" height="100" alt=""></div>
+            <dl>
+                <dd><span>寿光市新世纪种苗有限公司</span><span>种子</span><span>省级龙头企业</span></dd>
+                <dd><span>寿光市新世纪种苗有限公司</span><span>种子</span><span>省级龙头企业</span></dd>
+                <dd><span>寿光市新世纪种苗有限公司</span><span>种子</span><span>省级龙头企业</span></dd>
+                <dd><span>寿光市新世纪种苗有限公司</span><span>种子</span><span>省级龙头企业</span></dd>
+                <dd><span>寿光市新世纪种苗有限公司</span><span>种子</span><span>省级龙头企业</span></dd>
+                <dd><span>寿光市新世纪种苗有限公司</span><span>种子</span><span>省级龙头企业</span></dd>
+            </dl>
+        </div>
+        <div class="right fl">
+            <h4>行业动态</h4>
+            <ol>
+                <li>中央深改组开会 12项改革方案新鲜出炉</li>
+                <li>社保缴费基数将调整 低收入者到手</li>
+                <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+                <li>土壤污染触目惊心 多省酝酿"土十条"地方</li>
+                <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+                <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+                <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+                <li>土壤污染触目惊心 多省酝酿"土十条"地方</li>
+                <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+                <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+            </ol>
+            <div class="img"><img src="images/dra-3.png" width="296" height="200" alt=""></div>
+        </div>
+    </div>
+    <div class="content4 clearfix">
+        <div class="left fl clearfix">
+            <ul class="long">
+                <li class="on">产业发展</li>
+                <li>专家指导</li>
+                <li>远程协助</li>
+                <li>峰会沙龙</li>
+                <li>学习培训</li>
+            </ul>
+            <div class="fl">
+                <img src="images/dra-4.png" width="300" height="200" alt="">
+            </div>
+            <div class="fl">
+                <ol>
+                    <li>中央深改组开会 12项改革方案新鲜出炉</li>
+                    <li>社保缴费基数将调整 低收入者到手</li>
+                    <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+                    <li>土壤污染触目惊心 多省酝酿"土十条"地方</li>
+                    <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+                    <li>袁隆平:中国水稻不能以牺牲产量为代</li>
+                </ol>
+            </div>
+        </div>
+        <div class="right fr">
+            <ul class="long">
+                <li class="on">优企推荐</li>
+            </ul>
+            <div class="img"><img src="images/dra-5.png" width="160" height="160" alt=""></div>
+        </div>
+    </div>
+</div>
+<div class="about">
+    <div class="footer-con">
+        <a href="">关于我们</a><span>|</span>
+        <a href="">联系我们</a><span>|</span>
+        <a href="">网站声明</a><span>|</span>
+        <a href="">隐私权保护规范</a><span>|</span>
+        <a href="">广告合作</a><span>|</span>
+        <a href="">人才招聘</a><span>|</span>
+        <a href="">友情链接</a>
+    </div>
+</div>
+<div class="footer clearfix">
+    <div class="footer-con">
+        <div class="ewm fl"><img src="images/ewm.png" width="151" height="151" alt=""></div>
+        <div class="info fr">
+            <ul>
+                <li>咨询投诉：4000-138-919</li>
+                <li>地址：河北省琢州市范阳中路槐林西街36号</li>
+                <li>邮编：032750</li>
+                <li>咨询/投诉电子邮箱：hongmeng@worldhm.com</li>
+                <li>法律顾问：北京市康达律师事务所</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

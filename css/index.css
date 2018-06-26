@@ -1,0 +1,339 @@
+.banner1{
+    margin: 20px 0;
+}
+.lunbo {
+    position: relative;
+    overflow: hidden;
+    width: 686px;
+    height: 440px;
+    margin-right: 20px;
+}
+.imgs {
+    position: absolute;
+    top: 0;
+}
+.imgs li {
+    float: left;
+    width: 686px;
+    height: 440px;
+}
+.btns {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    text-align: center;
+}
+.btns li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.btns .active {
+    background: #fff;
+}
+.prev,.next {
+    position: absolute;
+    top: 50%;
+    margin-top: -40px;
+    width: 50px;
+    height: 80px;
+    font-size: 60px;
+    font-family: '宋体';
+    color: #fff;
+    text-align: center;
+    line-height: 80px;
+    background: rgba(0,0,0,.5);
+}
+.prev {
+    left: 0;
+}
+.next {
+    right: 0;
+}
+.content1,.content2,.content3,.content4,.content5,.content6,.content7,.content8{
+    margin-bottom: 30px;
+}
+.content1 .list .top-bd{
+    width: 266px;
+    height: 41px;
+    font-size: 18px;
+    padding-left: 8px;
+    padding-right: 16px;
+    border: 1px solid #EAEAEA;
+    line-height: 41px;
+}
+.content1 .list .top-bd span{
+    font-size: 12px;
+    cursor: pointer;
+}
+.content1 .list ul{
+    width: 266px;
+    font-size: 18px;
+    padding-left: 8px;
+    padding-right: 16px;
+    border: 1px solid #EAEAEA;
+    margin-top: -2px;
+}
+.content1 .list ul li{
+    line-height: 31px;
+}
+
+.content2 .quote{
+    width: 295px;
+    height: 250px;
+    border: 1px solid #EAEAEA;
+    box-sizing: border-box;
+}
+.content2 .quote h4{
+    width: 275px;
+    height: 44px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    background-color: #197427;
+    font-size: 16px;
+    line-height: 44px;
+    color: #fff;
+}
+.content2 .quote ul{
+    padding-left: 10px;
+}
+.content2 .quote ul li{
+    line-height: 30px;
+}
+.content2 .active{
+    width: 694px;
+    height: 250px;
+    border: 1px solid #EAEAEA;
+    box-sizing: border-box;
+}
+.content2 .active .title{
+    height: 42px;
+    padding-left: 20px;
+    border-bottom: 1px solid #EAEAEA;
+    font-size: 16px;
+    line-height: 44px;
+}
+.content2 .active .title span{
+    margin-right: 20px;
+    font-size: 12px;
+}
+.content2 .active .btm{
+    padding-top: 20px;
+    padding-right: 20px;
+}
+.content2 .active .btm h5{
+    font-size: 18px;
+    color: #A72929;
+}
+.content2 .active .btm p{
+    font-size: 12px;
+    color: #656565;
+    margin: 4px 0;
+}
+.content2 .active .btm ul li{
+    width: 404px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px dashed #BFBFBF;
+    line-height: 10px;
+}
+.content2 .active .btm ul li span{
+    float: right;
+}
+
+.content3 .tabs{
+    width: 685px;
+    height: 270px;
+    border: 1px solid #EAEAEA;
+    box-sizing: border-box;
+}
+.content3 .tabs ul{
+    height: 44px;
+    background-color: #197427;
+    line-height: 44px;
+}
+.content3 .tabs ul li{
+    float: left;
+    width: 118px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+.content3 .tabs ul li.on{
+    width: 118px;
+    height: 39px;
+    margin-top: 2px;
+    margin-left: 2px;
+    background-color: #fff;
+    line-height: 39px;
+    color: #333;
+}
+.content3 .tabs ol{
+    float: left;
+    padding: 0 20px;
+    margin-top: 13px;
+    margin-right: 50px;
+}
+.content3 .tabs ol:nth-child(3){
+    margin-right: 0;
+}
+.content3 .tabs ol li{
+    width: 250px;
+    line-height: 30px;
+}
+.content3 .tabs ol li span{
+    float: right;
+}
+.content3 .tabs div{
+    display: none;
+}
+.content3 .tabs div.show{
+    display: block;
+}
+.content3 .img{
+    width: 284px;
+}
+.content3 .img img:nth-child(1){
+    margin-bottom: 20px;
+}
+
+.content4 .left{
+    width: 700px;
+}
+.content4 .left h5{
+    font-size: 16px;
+    padding-left: 10px;
+    border-left: 10px solid #009965;
+}
+.content4 .left .plant{
+    margin-bottom: 15px;
+}
+.content4 .left .btm{
+    width: 696px;
+    height: 236px;
+    padding: 20px 30px 25px 10px;
+    margin-top: 20px;
+    border: 1px solid #EAEAEA;
+    box-sizing: border-box;
+}
+.content4 .left .btm ul li{
+    line-height: 30px;
+}
+.content4 .right{
+    width: 282px;
+    border: 1px solid #EAEAEA;
+    box-sizing: border-box;
+}
+.content4 .right .tabs2 ul{
+    height: 43px;
+    background-color: #197427;
+    line-height: 43px;
+}
+.content4 .right .tabs2 ul li{
+    float: left;
+    width: 96px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+.content4 .right .tabs2 ul li.on{
+    width: 96px;
+    height: 39px;
+    margin-top: 2px;
+    margin-left: 2px;
+    background-color: #fff;
+    line-height: 39px;
+    color: #333;
+}
+.content4 .right .tabs2 ol li{
+    padding: 5px 0 10px 10px;
+    border-bottom: 1px dashed #E8E8E8;
+}
+.content4 .right .tabs2 ol li span{
+    padding-right: 10px;
+}
+.content4 .right .tabs2 ol li:nth-child(1) span{
+    color: #FA5B5B;
+}
+.content4 .right .tabs2 ol li:nth-child(2) span{
+    color: #FA5B5B;
+}
+.content4 .right .tabs2 ol li:nth-child(3) span{
+    color: #FCB1B1;
+}
+.content4 .right .tabs2 .img img:nth-child(1){
+    margin-top: 16px;
+}
+.content4 .right .tabs2 .img img:nth-child(2){
+    margin-top: 50px;
+}
+.content4 .right .tabs2 .good{
+    padding: 0 10px;
+}
+.content4 .right .tabs2 .good h6{
+    width: 280px;
+    height: 34px;
+    margin-bottom: 10px;
+    margin-left: -10px;
+    background-color: #197427;
+    font-size: 16px;
+    line-height: 34px;
+    text-align: center;
+    color: #fff;
+}
+.content4 .right .tabs2 .good img{
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+}
+.content4 .right .tabs2 .good span{
+    display: block;
+    color: #B34949;
+}
+.content4 .right .tabs2 .good p{
+    font-size: 12px;
+    line-height: 30px;
+    color: #656565;
+}
+
+.content5 .tabs3 ul{
+    height: 43px;
+    background-color: #197427;
+    line-height: 43px;
+}
+.content5 .tabs3 ul li{
+    float: left;
+    width: 118px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+.content5 .tabs3 ul li.on{
+    width: 118px;
+    height: 39px;
+    margin-top: 2px;
+    margin-left: 2px;
+    background-color: #fff;
+    line-height: 39px;
+    color: #333;
+}
+.content5 .tabs3 dl dd{
+    float: left;
+    margin-right: 40px;
+    line-height: 4;
+}
+.content5 .tabs3 ol{
+    width: 540px;
+}
+.content5 .tabs3 ol li{
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 30px;
+}

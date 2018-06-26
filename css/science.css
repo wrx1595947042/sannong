@@ -1,0 +1,260 @@
+#197427h4{
+    font-size: 16px;
+    color: #00AD10;
+    margin-bottom: 22px;
+}
+.content1{
+    margin-top: 20px;
+}
+.content2,.content3,.content4,.content5{
+    margin-bottom: 20px;
+}
+.content1 .left .fl ul,.content1 .left .fl ol{
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #F6F6F6;
+}
+.content1 .left .fl ul li,.content1 .left .fl ol li{
+    width: 296px;
+    height: 30px;
+    padding-left: 14px;
+    line-height: 30px;
+}
+.content1 .left .fl ul li:nth-child(1),.content1 .left .fl ul li:nth-child(3),.content1 .left .fl ul li:nth-child(5){
+    background-color: #F3F3F3;
+}
+#banner{
+    position: relative;
+    overflow: hidden;
+    width: 304px;
+    height: 245px;
+    margin-bottom: 15px;
+}
+#banner ul{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 500%;
+    transition:.5s;
+}
+#banner ul li{
+    float: left;
+    list-style: none;
+    width: 304px;
+    height: 212px;
+}
+#banner .page .prev,#banner .page .next{
+    position: absolute;
+    top: calc(50% - 18px);
+    width: 26px;
+    height: 36px;
+    background-color: rgb(0,0,0);
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+}
+#banner .page{
+    opacity: 0;
+    transition:.35s;
+}
+.prev{
+    left: 0;
+}
+.next{
+    right: 0;
+}
+#banner:hover .page{
+    opacity: .5;
+}
+.btn{
+    position: absolute;
+    right: -5px;
+    bottom: 10px;
+    width: 100%;
+    height: 10px;
+}
+.btn em{
+    font-size: 12px;
+}
+.btn span{
+    float: left;
+    width: 24px;
+    height: 20px;
+    background: url("../images/sci-page.png") no-repeat left bottom;
+    margin: 0 3px;
+    margin-top: 0 !important;
+    font-size: 10px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.btn span.on{
+    background: url("../images/sci-page-on.png") no-repeat left bottom;
+    color: #fff;
+}
+.content1 .focus ul li{
+    padding-left: 0 !important;
+    line-height: 0;
+}
+h3{
+    background: url("../images/sci-h3bg.png") repeat-x left top;
+    width: 275px;
+    height: 30px;
+    padding: 0 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: bold;
+    color: #128B2E;
+}
+h3 span{
+    font-size: 12px;
+    font-weight: normal;
+    color: #333;
+}
+.content1 .focus div.clearfix div{
+    float: left;
+    margin-right: 5px;
+}
+.content1 .focus div span{
+    display: block;
+    margin-top: 5px;
+}
+.content1 .focus ol li{
+    line-height: 30px;
+    padding-left: 0 !important;
+}
+.content1 .right{
+    width: 278px;
+}
+.content1 .right ul{
+    background: url("../images/sci-bg2.png") repeat-x left top;
+}
+.content1 .right ul li{
+    line-height: 30px;
+}
+.content1 .right ul li span{
+    float: right;
+    font-size: 12px;
+    color: #999;
+}
+.content1 .right .lay{
+    background: url("../images/sci-bg2.png") repeat-x left top;
+    width: 308px;
+    margin-top: 25px;
+}
+.content1 .right .lay span{
+    display: block;
+    margin-bottom: 8px;
+}
+.content1 .right .lay p{
+    width: 146px;
+    line-height: 20px;
+}
+.content1 .right .lay p span{
+    color: #FF9B13;
+}
+.banner2{
+    margin: 20px 0;
+}
+
+.content2 .left h3{
+    width: 630px;
+}
+.content2 .fl ul{
+    padding-left: 20px;
+}
+.content2 .fl ul li{
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #E4E4E4;
+}
+.content2 .fl ul li:nth-child(1){
+    color: #138B2D;
+}
+.content2 .left .bg .fr{
+    width: 350px;
+}
+.content2 .left .bg .fr .fr{
+    width: 175px;
+}
+.content2 .left .bg .fr .fr h6{
+    font-size: 16px;
+    color: #FF9B13;
+}
+.content2 .left .bg .fr em{
+    font-size: 12px;
+    line-height: 20px;
+    color: #656565;
+}
+.content2 .left .bg .fr em span{
+    font-size: 12px;
+    color: #FF9B13;
+}
+.content2 .left .bg .fr p{
+    line-height: 30px;
+}
+.content2 .right{
+    width: 300px;
+}
+.content2 .right .modern{
+    background: url("../images/sci-bg2.png") repeat-x left top;
+}
+.content2 .right .modern .fr{
+    width: 140px;
+}
+.content2 .right .modern .fr em{
+    font-size: 12px;
+    color: #656565;
+}
+.content2 .right .modern .fr em span{
+    color: #FF9B13;
+}
+.content2 .right p{
+    line-height: 30px;
+}
+
+.content3 h3{
+    width: 700px;
+}
+.content3 .new{
+    width: 700px;
+    padding-top: 20px;
+    background: url("../images/sci-bg2.png") repeat-x left top;
+    padding-left: 10px;
+}
+.content3 .new .fr{
+    width: 455px;
+}
+.content3 .new ul li{
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+.content3 .new ul li:nth-child(4n){
+    margin-right: 0;
+}
+.content3 .right{
+    margin-top: -40px;
+}
+
+.content4 .left{
+    width: 700px;
+    padding-left: 10px;
+}
+.content4 h3{
+    width: 670px;
+}
+.content4 .left ul li,.content4 .right ul li{
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #E4E4E4;
+}
+.content4 .right,.content4 .right h3{
+    width: 270px;
+}
+.content2 .right img{
+    margin-bottom: 10px;
+}

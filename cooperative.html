@@ -1,0 +1,549 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三农合作社</title>
+    <link rel="stylesheet" href="css/global.css">
+    <script src="js/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="css/cooperative.css">
+    <link rel="stylesheet" href="css/iconfont.css">
+</head>
+<body>
+<!--顶部信息-->
+<div class="top">
+    <div class="wrap">
+        <div class="app fl">应用<u></u>
+            <ul class="ul">
+                <li><i></i><a href="###">三农资讯网</a></li>
+                <li><i></i><a href="###">三农产品网</a></li>
+                <li><i></i><a href="###">鸿云商城</a></li>
+                <li><i></i><a href="###">三农产品采购</a></li>
+                <li><i></i><a href="###">三农龙头企业</a></li>
+                <li><i></i><a href="###">三农合作社</a></li>
+                <li><i></i><a href="###">三农专业户</a></li>
+                <li><i></i><a href="###">三农新科技推广</a></li>
+            </ul>
+        </div>
+        <span class="fl">三农首页</span>
+        <script>
+            var oDiv = document.querySelector('.app');
+            var oUl = document.querySelector('.ul');
+            oDiv.onclick = function () {
+                if (oUl.style.display == 'block') {
+                    oUl.style.display = 'none';
+                } else {
+                    oUl.style.display = 'block';
+                }
+            }
+        </script>
+        <div class="fr">
+            <span>欢迎，您好</span>
+            <i>|</i>
+            <span>登录</span>
+            <i>|</i>
+            <span>注册</span>
+            <i>|</i>
+            <span>忘记密码？</span>
+            <i>|</i>
+            <span>收藏</span>
+            <i>|</i>
+            <u></u>
+            <span>蝴蝶云</span>
+        </div>
+    </div>
+</div>
+<div class="header wrap clearfix">
+    <div class="clearfix fl">
+        <div class="logo fl"><img src="images/logo.jpg" width="75" height="75" alt=""></div>
+        <div class="fl">
+            <span>中国</span>
+            <select class="jd">
+                <option value="">清凉街道</option>
+                <option value="">清凉街道</option>
+            </select>
+        </div>
+        <div class="search fl">
+            <input type="text" placeholder="请输入您的搜索关键词...">
+            <i>|</i>
+            <select class="info">
+                <option value="">供求信息</option>
+                <option value="">供应信息</option>
+            </select>
+            <div class="zoom fr"></div>
+            <div class="hot">
+                <strong>热搜：</strong>
+                <em>猪 苹果 玉米 生猪 小尾寒羊 小麦 大豆</em>
+            </div>
+        </div>
+        <div class="tel fr"></div>
+    </div>
+</div>
+<!--导航-->
+<div class="nav">
+    <div class="wrap">
+        <ul>
+            <li><a href="index.html">三农首页</a></li>
+            <li><a href="product.html">三农产品</a></li>
+            <li><a href="news.html">三农新闻</a></li>
+            <li><a class="curr" href="cooperative.html">合作社</a></li>
+            <li><a href="science.html">科技推广</a></li>
+            <li><a href="dragon.html">龙头企业</a></li>
+            <li><a href="user.html">专业户</a></li>
+        </ul>
+    </div>
+</div>
+<div class="wrap">
+    <div class="banner1">
+        <div class="banner1"><img src="images/banner20.png" alt="" width="1000" height="90"></div>
+    </div>
+    <div class="content1 clearfix">
+        <div class="lunbo fl ">
+            <ul class="imgs">
+                <li><img src="images/banner1.png" width="686" height="440" alt="1"></li>
+                <li><img src="images/banner2.png" width="686" height="440" alt="1"></li>
+                <li><img src="images/banner1.png" width="686" height="440" alt="1"></li>
+                <li><img src="images/banner2.png" width="686" height="440" alt="1"></li>
+                <li><img src="images/banner3.png" width="686" height="440" alt="1"></li>
+            </ul>
+            <ol class="btns">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <a href="###" class="prev">&lt;</a>
+            <a href="###" class="next">&gt;</a>
+        </div>
+        <script>
+            var t = null;
+            var index = 0; // 设置初始图片序号
+            var speed = 500; // 一幅图片切换时间
+            var interval = 2000; // 自动轮播图片的切换时间间隔
+            var w = $('.lunbo').width(); // 图片宽度
+            var n = $('.imgs').find('li').size(); // 图片总数(追加辅助图片之前)
+            var btns = $('.btns').find('li'); // 所有圆点
+            var first = $('.imgs').find('li').first(); // 图片列表中的第一幅图
+            var last = $('.imgs').find('li').last(); // 图片列表中的最后一幅图
+            $('.imgs').append(first.clone()); // 在图片列表最后添加上第一幅图
+            $('.imgs').prepend(last.clone()); // 在图片列表最前添加上最后一幅图
+            n = $('.imgs').find('li').size(); // 图片总数(追加辅助图片之后)
+            $('.imgs').width(w * n).css('left', -(index + 1) * w + 'px'); // 设置.imgs的宽度，并且根据index的设置，显示相应的图片
+            setBtns(); // 根据index的设置，设置圆点的默认激活位置
+            function move() { // 显示指定的图片
+                $('.imgs').animate({
+                        left: -(index + 1) * w + 'px'
+                    },
+                    speed, function () { // 回调函数，越界处理
+                        if ($('.imgs').css('left') == '-' + w * (n - 1) + 'px') {
+                            $('.imgs').css('left', '-' + w + 'px');
+                        }
+                        if ($('.imgs').css('left') == '0px') {
+                            $('.imgs').css('left', '-' + w * (n - 2) + 'px');
+                        }
+                    });
+                // 越界处理
+                if (index == n - 2) {
+                    index = 0;
+                }
+                if (index == -1) {
+                    index = n - 3;
+                }
+            }
+
+            function setBtns() {
+                btns.eq(index).addClass('active').siblings().removeClass('active'); // 将index对应的按钮添加激活类，其他按钮去掉激活类
+            }
+
+            $('.prev').click(function () {
+                index--;
+                move();
+                setBtns();
+            });
+            $('.next').click(function () {
+                index++;
+                move();
+                setBtns();
+            });
+            btns.click(function () {
+                index = $(this).index();
+                move();
+                setBtns();
+            });
+            $('.lunbo').hover(function () {
+                clearInterval(t);
+            }, function () {
+                t = setInterval("$('.next').click()", interval);
+            });
+            $('.lunbo').mouseout();
+        </script>
+        <div class="hot fr">
+            <ul>
+                <li class="on">热点动态</li>
+            </ul>
+            <div class="info clearfix show">
+                <div class="txt">
+                    <h6>推进供给侧结构性改革 促提质增效转型升级</h6>
+                    <p>2015年11月，习近平总书记在中央财经领导小组工作会议上指出，侧结构性改革系... <span>【详细】</span></p>
+                </div>
+                <div class="txt">
+                    <h6>推进供给侧结构性改革 促提质增效转型升级</h6>
+                    <p>2015年11月，习近平总书记在中央财经领导小组工作会议上指出，侧结构性改革系... <span>【详细】</span></p>
+                </div>
+                <dl>
+                    <dd>多方合力 坚决打赢脱贫攻坚战</dd>
+                    <dd>农业产业调结构调出“五谷丰登”</dd>
+                    <dd>京津冀品种联审共推 助力农业结构调整</dd>
+                    <dt>切实把精准扶贫精准脱贫落到实处</dt>
+                    <dd>推进农业供给侧结构性改革 提高农业竞争力</dd>
+                    <dd>促进先富帮后富实现共同富裕</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="content2 clearfix">
+        <div class="active fl">
+            <ul>
+                <li class="on">行业动态</li>
+            </ul>
+            <div class="info clearfix">
+                <div class="fl">
+                    <img src="images/hzs1.png" alt="">
+                    <p>胡元勇的双孢菇每天一两百斤的产量在进入市场后不久就被抢购一空，每天的收入可达一千多元... <span>【详细】</span></p>
+                </div>
+                <div class="fr">
+                    <ol>
+                        <li>多方合力 坚决打赢脱贫攻坚战<span>2018-05-22</span></li>
+                        <li>农业产业调结构调出“五谷丰登”<span>2018-05-22</span></li>
+                        <li>京津冀品种联审共推 助力农业结构调整<span>2018-05-22</span></li>
+                        <li>切实把精准扶贫精准脱贫落到实处<span>2018-05-22</span></li>
+                        <li>推进农业供给侧结构性改革 提高农业竞争力<span>2018-05-22</span></li>
+                        <li>促进先富帮后富实现共同富裕<span>2018-05-22</span></li>
+                        <li>肥料业供给侧发力推进转型升级<span>2018-05-22</span></li>
+                        <li>促进先富帮后富实现共同富裕<span>2018-05-22</span></li>
+                        <li>肥料业供给侧发力推进转型升级<span>2018-05-22</span></li>
+                    </ol>
+                </div>
+            </div>
+            <img class="img" src="images/hzs2.png" alt="">
+        </div>
+        <div class="ranking fr">
+            <ul>
+                <li class="on">名社排行</li>
+            </ul>
+            <div class="info">
+                <ol>
+                    <li><span>1</span>多方合力 坚决打赢脱贫攻坚战</li>
+                    <li><span>2</span>农业产业调结构调出“五谷丰登”</li>
+                    <li><span>3</span>京津冀品种联审共推 助力农业结</li>
+                    <li><span>4</span>切实把精准扶贫精准脱贫落到实</li>
+                    <li><span>5</span>推进农业供给侧结构性改革 提高</li>
+                    <li><span>6</span>促进先富帮后富实现共同富裕</li>
+                    <li><span>7</span>肥料业供给侧发力推进转型升级</li>
+                    <li><span>8</span>促进先富帮后富实现共同富裕</li>
+                    <li><span>9</span>肥料业供给侧发力推进转型升级</li>
+                    <li><span></span>促进先富帮后富实现共同富裕</li>
+                    <li><span></span>促进先富帮后富实现共同富裕</li>
+                    <li><span></span>肥料业供给侧发力推进转型升级</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="content3 clearfix">
+        <div class="elite fl">
+            <ul>
+                <li class="on">领袖精英</li>
+                <li>专业人士</li>
+                <li>行家里手</li>
+                <li>后生无畏</li>
+            </ul>
+            <div class="info clearfix">
+                <div class="fl">
+                    <img src="images/hzs3.png" width="180" height="120" alt="">
+                    <img src="images/hzs3.png" width="180" height="120" alt="">
+                    <img src="images/hzs3.png" width="180" height="120" alt="">
+                    <img src="images/hzs3.png" width="180" height="120" alt="">
+                </div>
+                <div class="fr">
+                    <ol>
+                        <li class="curr"><i class="iconfont icon-lianjie curr"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                        <li><i class="iconfont icon-lianjie"></i>李莉莉</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="expert fr">
+            <ul>
+                <li class="on">专家指导</li>
+            </ul>
+            <div class="info">
+                <ol>
+                    <li>多方合力 坚决打赢脱贫攻坚战</li>
+                    <li>农业产业调结构调出“五谷丰登”</li>
+                    <li>京津冀品种联审共推 助力农业结</li>
+                    <li>切实把精准扶贫精准脱贫落到实</li>
+                    <li>推进农业供给侧结构性改革 提高</li>
+                    <li>促进先富帮后富实现共同富裕</li>
+                    <li>肥料业供给侧发力推进转型升级</li>
+                    <li>促进先富帮后富实现共同富裕</li>
+                    <li>肥料业供给侧发力推进转型升级</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="content4 clearfix">
+        <div class="directory fl">
+            <ul>
+                <li class="on">名社名录</li>
+            </ul>
+            <div class="info clearfix">
+                <div class="fl">
+                    <div id="banner2">
+                        <ul class="ul2">
+                            <li><img src="images/banner1.png" width="380" height="230" alt=""></li>
+                            <li><img src="images/hzs5.png" width="380" height="230" alt=""></li>
+                            <li><img src="images/hzs5.png" width="380" height="230" alt=""></li>
+                            <li><img src="images/hzs4.png" width="380" height="230" alt=""></li>
+                            <li><img src="images/hzs5.png" width="380" height="230" alt=""></li>
+                        </ul>
+                        <div class="page">
+                            <div class="oPrev">&lt;</div>
+                            <div class="oNext">&gt;</div>
+                        </div>
+                        <div class="btn">
+                            <span class="on"></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <script>
+                        var oBox = document.querySelector('#banner2');
+                        var oUl2 = document.querySelector('.ul2');
+                        var oLi3 = document.querySelectorAll('.ul2 li');
+                        var oPage = document.querySelectorAll('.page div');
+                        var oBtn = document.querySelectorAll('.btn span');
+                        var ind = 0;
+                        var num = 0;
+                        var timer;
+                        for (var i = 0, len = oBtn.length; i < len; i++) {
+                            oBtn[i].i = i;
+                            oBtn[i].onclick = function () {
+                                oBtn[ind].className = '';
+                                ind = this.i;
+                                this.className = 'on';
+                                oUl2.style.left = -380 * ind + 'px';
+                            }
+                        }
+                        for (var i = 0, len = oPage.length; i < len; i++) {
+                            oPage[i].b = i;
+                            oPage[i].onclick = function () {
+                                oBtn[ind].className = '';
+                                num = this.b;
+                                if (num) {
+                                    ind++;
+                                    if (ind > 4) {
+                                        ind = 0;
+                                    }
+                                } else {
+                                    ind--;
+                                    if (ind < 0) {
+                                        ind = 4;
+                                    }
+                                }
+                                oBtn[ind].className = 'on';
+                                oUl2.style.left = -380 * ind + 'px';
+                            }
+                        }
+
+                        function play() {
+                            timer = setInterval(function () {
+                                oBtn[ind].className = '';
+                                ind++;
+                                if (ind > 4) {
+                                    ind = 0;
+                                }
+                                oBtn[ind].className = 'on';
+                                oUl2.style.left = -380 * ind + 'px';
+                            }, 2000);
+                        }
+
+                        oBox.onmouseover = function () {
+                            clearInterval(timer);
+                        }
+                        oBox.onmouseout = function () {
+                            play();
+                        }
+                        play();
+                    </script>
+                </div>
+                <div class="fr">
+                    <img src="images/hzs6.png" alt="">
+                    <img src="images/hzs6.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="dir fr">
+            <img src="images/hzs7.png" alt="">
+            <img src="images/hzs7.png" alt="">
+            <img src="images/hzs7.png" alt="">
+        </div>
+    </div>
+    <div class="content5 clearfix">
+        <div class="coop fl">
+            <ul>
+                <li class="on">合作合住</li>
+                <li>产业集群</li>
+                <li>政策研究</li>
+                <li>峰会沙龙</li>
+            </ul>
+            <div class="info clearfix">
+                <div class="fl">
+                    <ol class="fl">
+                        <li>合作社营造了好“生态”</li>
+                        <li>京郊果农急盼收购商</li>
+                        <li>新型经营主体助推铁岭土地流转</li>
+                        <li>种地机械化 在家拿分红 得闲去打工</li>
+                        <li>山区农民让蚕宝宝吐“金丝”</li>
+                        <li>脱贫攻坚的南江故事</li>
+                        <li>菊花成农民增收重头产业</li>
+                        <li>菊花成农民增收重头产业</li>
+                    </ol>
+                    <ol class="fl">
+                        <li>合作社营造了好“生态”</li>
+                        <li>京郊果农急盼收购商</li>
+                        <li>新型经营主体助推铁岭土地流转</li>
+                        <li>种地机械化 在家拿分红 得闲去打工</li>
+                        <li>山区农民让蚕宝宝吐“金丝”</li>
+                        <li>脱贫攻坚的南江故事</li>
+                        <li>菊花成农民增收重头产业</li>
+                        <li>菊花成农民增收重头产业</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="expert fr">
+            <ul>
+                <li class="on">培训资料</li>
+            </ul>
+            <div class="info">
+                <ol>
+                    <li>多方合力 坚决打赢脱贫攻坚战</li>
+                    <li>农业产业调结构调出“五谷丰登”</li>
+                    <li>京津冀品种联审共推 助力农业结</li>
+                    <li>切实把精准扶贫精准脱贫落到实</li>
+                    <li>推进农业供给侧结构性改革 提高</li>
+                    <li>促进先富帮后富实现共同富裕</li>
+                    <li>肥料业供给侧发力推进转型升级</li>
+                    <li>促进先富帮后富实现共同富裕</li>
+                    <li>肥料业供给侧发力推进转型升级</li>
+                </ol>
+            </div>
+        </div>
+        <div class="img"><img src="images/hzs8.png" width="1000" height="90" alt=""></div>
+    </div>
+    <div class="content6 clearfix">
+        <div class="quality">
+            <ul>
+                <li class="on">优企推荐</li>
+            </ul>
+            <div id=demo style="overflow: hidden; width: 100%; height: 150px;">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td id=demo1>
+                            <table width="100%" height="150" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td height="150"><img src="images/hzs9.png" width=150 height=150></td>
+                                    <td>&nbsp;</td>
+                                    <td height="150"><img src="images/hzs9.png" width=150 height=150></td>
+                                    <td>&nbsp;</td>
+                                    <td height="150"><img src="images/hzs9.png" width=150 height=150></td>
+                                    <td>&nbsp;</td>
+                                    <td height="150"><img src="images/hzs9.png" width=150 height=150></td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td height="150"><img src="images/hzs9.png" width=150 height=150></td>
+                                    <td>&nbsp;</td>
+                                    <td height="150"><img src="images/hzs9.png" width=150 height=150></td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td height="150"><img src="images/hzs9.png" width=150 height=150></td>
+                                    <td>&nbsp;</td>
+                                    <td height="150"><img src="images/hzs9.png" width=150 height=150></td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                        <td id=demo2 width=0></td>
+                    </tr>
+                </table>
+            </div>
+            <script>
+                var speed = 10//速度数值越大速度越慢
+                demo2.innerHTML = demo1.innerHTML
+
+                function Marquee() {
+                    if (demo2.offsetWidth - demo.scrollLeft <= 0)
+                        demo.scrollLeft -= demo1.offsetWidth
+                    else {
+                        demo.scrollLeft++
+                    }
+                }
+
+                var MyMar = setInterval(Marquee, speed)
+                demo.onmouseover = function () {
+                    clearInterval(MyMar)
+                }
+                demo.onmouseout = function () {
+                    MyMar = setInterval(Marquee, speed)
+                }
+            </script>
+        </div>
+    </div>
+</div>
+<div class="about">
+    <div class="footer-con">
+        <a href="">关于我们</a><span>|</span>
+        <a href="">联系我们</a><span>|</span>
+        <a href="">网站声明</a><span>|</span>
+        <a href="">隐私权保护规范</a><span>|</span>
+        <a href="">广告合作</a><span>|</span>
+        <a href="">人才招聘</a><span>|</span>
+        <a href="">友情链接</a>
+    </div>
+</div>
+<div class="footer clearfix">
+    <div class="footer-con">
+        <div class="ewm fl"><img src="images/ewm.png" width="151" height="151" alt=""></div>
+        <div class="info fr">
+            <ul>
+                <li>咨询投诉：4000-138-919</li>
+                <li>地址：河北省琢州市范阳中路槐林西街36号</li>
+                <li>邮编：032750</li>
+                <li>咨询/投诉电子邮箱：hongmeng@worldhm.com</li>
+                <li>法律顾问：北京市康达律师事务所</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

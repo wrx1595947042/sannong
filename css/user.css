@@ -1,0 +1,283 @@
+.banner{
+    margin: 20px 0;
+}
+.content1,.content2,.content3,.content4,.content5{
+    margin-bottom: 20px;
+}
+.lunbo {
+    width: 748px;
+    height: 316px;
+    position: relative;
+    overflow: hidden;
+}
+.imgs {
+    position: absolute;
+    top: 0;
+}
+.imgs li {
+    float: left;
+    width: 748px;
+    height: 316px;
+}
+.btns {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    text-align: center;
+}
+.btns li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.btns .active {
+    background: #fff;
+}
+.prev,.next {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 80px;
+    margin-top: -40px;
+    font-size: 30px;
+    color: #fff;
+    font-family: '宋体';
+    text-align: center;
+    line-height: 80px;
+    background: rgba(0,0,0,.5);
+}
+.prev {
+    left: 0;
+}
+.next {
+    right: 0;
+}
+.content1 .right .fr{
+    width: 150px;
+}
+.content1 h4{
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+.content1 .right .fr p{
+    font-size: 12px;
+    color: #656565;
+}
+.content1 .right .fl img{
+    padding-right: 10px;
+}
+.content1 .right ol li{
+    line-height: 30px;
+}
+ul.long{
+    height: 40px;
+    background-color: #197427;
+    line-height: 40px;
+}
+ul.long li{
+    float: left;
+    width: 118px;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+ul.long li.on{
+    width: 118px;
+    height: 36px;
+    margin-top: 2px;
+    margin-left: 2px;
+    background-color: #fff;
+    line-height: 36px;
+    color: #333;
+}
+
+.content2 ul{
+    margin-bottom: 20px;
+}
+.content2 .left,.content2 .right{
+    width: 250px;
+}
+.content2 .left{
+    margin-right: 10px;
+}
+.content2 .mid{
+    width: 478px;
+}
+.content2 ol li{
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #656565;
+    margin-bottom: 8px;
+}
+.content2 ol li span{
+    float: right;
+}
+.content2 .img{
+    margin: 20px 0;
+}
+#banner2{
+    position: relative;
+    overflow: hidden;
+    width: 380px;
+    height: 230px;
+}
+#banner2 ul{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 500%;
+    transition:.5s;
+}
+#banner2 ul li{
+    float: left;
+    list-style: none;
+    width: 380px;
+    height: 230px;
+}
+#banner2 .page .oPrev,#banner2 .page .oNext{
+    position: absolute;
+    top: calc(50% - 18px);
+    width: 26px;
+    height: 36px;
+    background-color: rgb(0,0,0);
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+}
+#banner2 .page{
+    opacity: 0;
+    transition:.35s;
+}
+.oPrev{
+    left: 0;
+}
+.oNext{
+    right: 0;
+}
+#banner2:hover .page{
+    opacity: .5;
+}
+.btn{
+    position: absolute;
+    left: calc(50% - 35px);
+    bottom: 10px;
+    width: 80px;
+    height: 10px;
+}
+.btn span{
+    float: left;
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 3px;
+    cursor: pointer;
+}
+.btn span.on{
+    background-color: #f50;
+}
+.content3 ul{
+    margin-bottom: 20px;
+}
+.content3 .left .fl p{
+    display: inline-block;
+    width: 166px;
+    margin-right: 35px;
+    line-height: 30px;
+}
+.content3 .right{
+    margin-left: 30px;
+}
+.content3 .right ol li{
+    line-height: 30px;
+}
+.content3 .right ol li span{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    line-height: 16px;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+}
+.content3 .right ol li:nth-child(1) span,.content3 .right ol li:nth-child(2) span,.content3 .right ol li:nth-child(3) span{
+    background-color: #E95717;
+}
+.content3 .right ol li:nth-child(4) span,.content3 .right ol li:nth-child(5) span,.content3 .right ol li:nth-child(6) span{
+    background-color: #169BD5;
+}
+.content3 .right ol li:nth-child(7) span,.content3 .right ol li:nth-child(8) span,.content3 .right ol li:nth-child(9) span,.content3 .right ol li:nth-child(10) span{
+    margin-right: 10px;
+}
+.content3 .expert{
+    width: 246px;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.content3 .expert span,.content3 .expert .img{
+    display: block;
+    text-align: center;
+}
+.content3 .expert p{
+    font-size: 12px;
+    line-height: 20px;
+    color: #656565;
+}
+.content3 .expert p em{
+    color: #E95717;
+}
+
+.content4 ul{
+    margin-bottom: 20px;
+}
+.content4 .left{
+    width: 744px;
+}
+.content4 .left .fl,.content4 .left .fr{
+    padding: 0 10px;
+}
+.content4 .left .fl ol li,.content4 .right ol li{
+    line-height: 30px;
+}
+.content4 .left .fr{
+    width: 480px;
+}
+.content4 .left .fr dl{
+    margin-top: 30px;
+}
+.content4 .left .fr dl dd{
+    float: left;
+    margin-right: 10px;
+}
+.content4 .right{
+    width: 246px;
+}
+.content4 .right ol{
+    padding: 0 10px;
+}
+
+.content5 ul{
+    margin-bottom: 20px;
+}
+.content5 .left{
+    width: 744px;
+}
+.content5 .left div{
+    padding: 0 10px;
+}
+.content5 ol{
+    width: 350px;
+}
+.content5 ol li{
+    line-height: 30px;
+}
+.content5 .img{
+    margin-bottom: 20px;
+}
